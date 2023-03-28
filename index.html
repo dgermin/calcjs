@@ -1,14 +1,278 @@
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+       <title>JavaScript Calculator</title>
+
 </head>
+
 <body>
-  
+
+       <h1>JavaScript Calculator</h1>
+
+       <form>
+
+             <label for="num1">Enter first number:</label>
+
+             <input type="number" id="num1" name="num1"><br><br>
+
+             <label for="num2">Enter second number:</label>
+
+             <input type="number" id="num2" name="num2"><br><br>
+
+             <button type="button" class="num" value="1">1</button>
+
+             <button type="button" class="num" value="2">2</button>
+
+             <button type="button" class="num" value="3">3</button><br><br>
+
+             <button type="button" class="num" value="4">4</button>
+
+             <button type="button" class="num" value="5">5</button>
+
+             <button type="button" class="num" value="6">6</button><br><br>
+
+             <button type="button" class="num" value="7">7</button>
+
+             <button type="button" class="num" value="8">8</button>
+
+             <button type="button" class="num" value="9">9</button><br><br>
+
+             <button type="button" class="num" value="0">0</button>
+
+             <button type="button" class="but" id="add">+</button>
+
+             <button type="button" class="but" id="subtract">-</button><br><br>
+
+             <button type="button" class="but" id="multiply">*</button>
+
+             <button type="button" class="but" id="divide">/</button>
+
+             <button type="button" id="equals">(=)</button>
+
+       </form>
+
+       <br>
+
+       <label>Operator:</label>
+
+       <label id="operator"></label><br><br>
+
+       <label>Result:</label>
+
+       <output id="output"></output>
+
+ 
+
+       <script>
+
+             // global variables for the numbers and operator
+
+             let num1, num2, operator;
+
+ 
+
+             // function to update the number fields
+
+             function updateNumberFields() {
+
+                    num1 = parseFloat(document.getElementById('num1').value);
+
+                    num2 = parseFloat(document.getElementById('num2').value);
+
+
+             };
+
+ 
+
+             // function to handle number button clicks
+
+             function handleNumberClick(event) {
+
+                    let number = event.target.value;
+
+                    if (operator === undefined) {
+
+                           num1 = (num1 !== undefined) ? parseFloat(num1.toString() + number) : parseFloat(number);
+
+                           document.getElementById('num1').value = num1;
+
+                    } else {
+
+                           num2 = (num2 !== undefined) ? parseFloat(num2.toString() + number) : parseFloat(number);
+
+                           document.getElementById('num2').value = num2;
+
+                    }
+
+             };
+
+ 
+
+             // function to perform addition
+
+             function add() {
+
+                    operator = '+';
+
+                    document.getElementById('operator').textContent = operator;
+
+             };
+
+ 
+
+             // function to perform subtraction
+
+             function subtract() {
+
+                    operator = '-';
+
+                    document.getElementById('operator').textContent = operator;
+
+             };
+
+ 
+
+             // function to perform multiplication
+
+             function multiply() {
+
+                    operator = '*';
+
+                    document.getElementById('operator').textContent = operator;
+
+             };
+
+ 
+
+             // function to perform division
+
+             function divide() {
+
+                    operator = '/';
+
+                    document.getElementById('operator').textContent = operator;
+
+             };
+
+ 
+
+             // function to perform calculation
+
+             function calculate() {
+
+                    updateNumberFields();
+
+                    let result;
+
+                
+
+
+             };
+
+
+
+
+
+
+
+
+
+const numButtons = document.querySelectorAll('.num');
+const butButtons = document.querySelectorAll('.but');
+let inputString = '';
+let inputStringi ='';
+
     
-    <script src="./script.js"></script>
-</body>
-</html>
+
+
+
+
+
+if(
+    document.getElementById('operator').innerHTML.includes('')
+    
+)
+{
+
+
+
+    numButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const num = button.textContent;
+        let box = document.getElementById('num1');
+
+        inputString += num;
+        box.value = inputString;
+
+        console.log ('bye') 
+    });
+    });
+    
+    
+   
+
+} else {
+
+    numButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const numBut = button.textContent;
+        let boxi = document.getElementById('num2');
+
+        inputStringi += numBut;
+        boxi.value = inputStringi;
+
+       
+        
+    });
+    });
+
+};
+   
+
+    function calculate() {
+  updateNumberFields();
+
+  let result;
+  switch (operator) {
+    case '+':
+      result = num1 + num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '*':
+      result = num1 * num2;
+      break;
+    case '/':
+      result = num1 / num2;
+      break;
+    default:
+      break;
+  }
+  document.getElementById('output').value = result;
+};
+
+// add event listeners for operator buttons
+document.getElementById('add').addEventListener('click', add);
+document.getElementById('subtract').addEventListener('click', subtract);
+document.getElementById('multiply').addEventListener('click', multiply);
+document.getElementById('divide').addEventListener('click', divide);
+
+// add event listener for equals button
+document.getElementById('equals').addEventListener('click', calculate);
+
+            
+           
+
+             
+             
+             </script>
+ </body>
+ </html>
